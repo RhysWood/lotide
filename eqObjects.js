@@ -6,15 +6,15 @@ const assertEqual = function(actual, expected) {
     console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
   }
 };
-const eqArrays = function (arr1, arr2) {
+const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
-  } 
-  for (let i =0; i < arr1.length; i++){
-    if (arr1[i] !== arr2[i]){
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
       return false;
     }
-  } 
+  }
   return true;
 };
 
@@ -27,29 +27,29 @@ const eqObjects = function(object1, object2) {
   const obj2val = Object.values(object2);
   if (obj1key.length !== obj2key.length) {
     return false;
-  } else if (eqArrays(obj1key, obj2key) === false){
+  } else if (eqArrays(obj1key, obj2key) === false) {
+    return false;
+  } else {
+    for (const val of obj1val) {
+      if (obj2val.includes(val) === false) {
         return false;
       } else {
-        for (const val of obj1val) {
-          if (obj2val.includes(val) === false) {
-            return false;
-          } else {
-            continue;
-          }
-        }
+        continue;
+      }
     }
+  }
   return true;
-}
+};
 
 const players = {
   name: "rhys",
   state: "vancouver",
-}
+};
 
 const players2 = {
   name: "rhys",
   state: "vancouver",
-}
+};
 
 console.log(assertEqual(eqObjects(players, players2), true));
 
