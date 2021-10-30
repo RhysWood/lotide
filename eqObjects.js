@@ -6,6 +6,17 @@ const assertEqual = function(actual, expected) {
     console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
   }
 };
+const eqArrays = function (arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  } 
+  for (let i =0; i < arr1.length; i++){
+    if (arr1[i] !== arr2[i]){
+      return false;
+    }
+  } 
+  return true;
+};
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
@@ -16,23 +27,19 @@ const eqObjects = function(object1, object2) {
   const obj2val = Object.values(object2);
   if (obj1key.length !== obj2key.length) {
     return false;
-  } else {
-    for (const keys of obj1key) { //looping individual keys of object 1
-      if (obj2key.includes(keys) === false) { //if object 2 includes the keys
-        for (const val of obj1val) { //loop the values of object 1
-          if (obj2val.includes(val) === false) { //if object
+  } else if (eqArrays(obj1key, obj2key) === false){
+        return false;
+      } else {
+        for (const val of obj1val) {
+          if (obj2val.includes(val) === false) {
             return false;
           } else {
             continue;
           }
         }
-      } else {
-        return false;
-      }
     }
-  }
-  return true
-};
+  return true;
+}
 
 const players = {
   name: "rhys",
@@ -41,7 +48,11 @@ const players = {
 
 const players2 = {
   name: "rhys",
-  state: "van",
+  state: "vancouver",
 }
 
-console.log(eqObjects(players, players2));
+console.log(assertEqual(eqObjects(players, players2), true));
+
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// console.log(eqObjects(cd, dc)); // => true
