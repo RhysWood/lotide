@@ -1,12 +1,4 @@
-//This is a function which compares two inputs and evaluates whether they are the same
-const assertEqual = function (actual, expected) {
-  if (actual !== expected) {
-    console.log(`🛑 🛑 🛑 Assertion Failed: ${actual} !== ${expected}`);
-  } else {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
-  }
-};
-const eqArrays = function (arr1, arr2) {
+const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
   }
@@ -20,7 +12,7 @@ const eqArrays = function (arr1, arr2) {
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
-const eqObjects = function (object1, object2) {
+const eqObjects = function(object1, object2) {
   const obj1key = Object.keys(object1);
   const obj2key = Object.keys(object2);
   const obj1val = Object.values(object1);
@@ -38,4 +30,30 @@ const eqObjects = function (object1, object2) {
   }
   return true;
 };
+
+const assertObjectsEqual = function(actual, expected) {
+  const inspect = require('util').inspect;
+  if (eqObjects(actual, expected)) {
+    console.log(`✅ ✅ ✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
+  } else {
+    console.log(`🛑 🛑 🛑 Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
+  }
+};
+
+const players = {
+  name: "rhys",
+  state: "vancouver",
+};
+
+const players2 = {
+  name: "rhys",
+  state: "vancouver",
+  name2: "rice"
+};
+
+assertObjectsEqual(players, players2);
+
+
+
+
 
