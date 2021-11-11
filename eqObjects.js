@@ -1,22 +1,5 @@
-//This is a function which compares two inputs and evaluates whether they are the same
-const assertEqual = function(actual, expected) {
-  if (actual !== expected) {
-    console.log(`🛑 🛑 🛑 Assertion Failed: ${actual} !== ${expected}`);
-  } else {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
-  }
-};
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+const assertEqual = require('./assertEqual');
+const eqArrays = require('./eqArrays');
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
@@ -41,18 +24,16 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-const players = {
-  name: "rhys",
-  state: "vancouver",
-};
+module.exports = eqObjects;
+//Driver Code:
+// const players = {
+//   name: "rhys",
+//   state: "vancouver",
+// };
 
-const players2 = {
-  name: "rhys",
-  state: "vancouver",
-};
+// const players2 = {
+//   name: "rhys",
+//   state: "vancouver",
+// };
 
-console.log(assertEqual(eqObjects(players, players2), true));
-
-// const cd = { c: "1", d: ["2", 3] };
-// const dc = { d: ["2", 3], c: "1" };
-// console.log(eqObjects(cd, dc)); // => true
+// assertEqual(eqObjects(players, players2), true);

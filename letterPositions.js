@@ -1,23 +1,6 @@
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+const eqArrays = require('./eqArrays');
+const assertArrayEqual = require('./assertArraysEqual');
 
-
-const assertArrayEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log(`🛑 🛑 🛑 Assertion Failed: ${arr1} !== ${arr2}`);
-  }
-};
 
 const letterPositions = function(sentence) {
   const results = {};
@@ -32,5 +15,9 @@ const letterPositions = function(sentence) {
   }
   return results;
 };
+
+module.exports = letterPositions;
+
+//Driver Code:
 // console.log(letterPositions("Lighthouse Labs"));
-assertArrayEqual(letterPositions("hello").h, [0]);
+// assertArrayEqual(letterPositions("hello").h, [0]);

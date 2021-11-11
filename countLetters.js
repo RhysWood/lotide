@@ -1,11 +1,5 @@
 //This is a function which compares two inputs and evaluates whether they are the same
-const assertEqual = function(actual, expected) {
-  if (actual !== expected) {
-    console.log(`🛑 🛑 🛑 Assertion Failed: ${actual} !== ${expected}`);
-  } else {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
-  }
-};
+const assertEqual = require('./assertEqual');
 
 const countLetters = function(sentence) {
   count = {};
@@ -21,8 +15,12 @@ const countLetters = function(sentence) {
   return count;
 };
 
-const text = "Hello my name is rhys";
+module.exports = countLetters;
+
+//Driver Code:
+
+// const text = "Hello my name is rhys";
 // console.log(countLetters("Hello my name is rhys"));
-const result1 = countLetters(text);
-assertEqual(result1["H"], 1);
+// const result1 = countLetters(text);
+// assertEqual(result1["H"], 1);
 // console.log(result1);
