@@ -1,4 +1,4 @@
-const eqArrays = function (arr1, arr2) {
+const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
   }
@@ -11,7 +11,7 @@ const eqArrays = function (arr1, arr2) {
 };
 
 
-const assertArrayEqual = function (arr1, arr2) {
+const assertArrayEqual = function(arr1, arr2) {
   if (eqArrays(arr1, arr2)) {
     console.log(`✅ ✅ ✅ Assertion Passed: ${arr1} === ${arr2}`);
   } else {
@@ -27,8 +27,8 @@ const map = function(arr, cb) {
     results.push(cb(item));
   }
   return results;
-}
-const results1 = map(words, word => word[0]); 
+};
+const results1 = map(words, word => word[0]);
 const results2 = map(num, num => num * 2);
 const results3 = map(num, num => num * 3);
 

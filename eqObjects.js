@@ -1,12 +1,12 @@
 //This is a function which compares two inputs and evaluates whether they are the same
-const assertEqual = function (actual, expected) {
+const assertEqual = function(actual, expected) {
   if (actual !== expected) {
     console.log(`🛑 🛑 🛑 Assertion Failed: ${actual} !== ${expected}`);
   } else {
     console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
   }
 };
-const eqArrays = function (arr1, arr2) {
+const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
   }
@@ -22,7 +22,7 @@ const eqArrays = function (arr1, arr2) {
 // Otherwise you get back a big fat false!
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
-const eqObjects = function (object1, object2) {
+const eqObjects = function(object1, object2) {
   const obj1key = Object.keys(object1);
   const obj2key = Object.keys(object2);
   const obj1val = Object.values(object1);
