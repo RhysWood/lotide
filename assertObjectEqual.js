@@ -11,21 +11,3 @@ const assertObjectsEqual = function(actual, expected) {
 };
 
 module.exports = assertObjectsEqual;
-
-//Driver Code:
-// const players = {
-//   name: "rhys",
-//   state: "vancouver",
-// };
-
-// const players2 = {
-//   name: "rhys",
-//   state: "vancouver",
-// };
-
-// assertObjectsEqual(players, players2);
-
-
-
-
-

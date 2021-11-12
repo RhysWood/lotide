@@ -16,11 +16,3 @@ const countLetters = function(sentence) {
 };
 
 module.exports = countLetters;
-
-//Driver Code:
-
-// const text = "Hello my name is rhys";
-// console.log(countLetters("Hello my name is rhys"));
-// const result1 = countLetters(text);
-// assertEqual(result1["H"], 1);
-// console.log(result1);

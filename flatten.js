@@ -14,7 +14,3 @@ const flatten = function(array) {
 };
 
 module.exports = flatten;
-
-//Driver Code:
-// console.log(flatten([1, [2], [3, [[4]]]]));
-// assertArrayEqual(flatten([1, [2], [3, [[4]]]]), [1, 2, 3, 4 ]);
